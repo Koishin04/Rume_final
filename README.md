@@ -1,2 +1,1 @@
 ﻿# Rume_final
-Kaisar gondon, mal 
