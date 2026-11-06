@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RuMe · Карточки соседей</title><link rel="stylesheet" href="/style.css"><script defer src="/app.js"></script>
+</head><body>
+<svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+<symbol id="settings" viewBox="0 0 24 24"><path d="M3 7h9m4 0h5M3 17h3m4 0h11"/><circle cx="14" cy="7" r="2.5"/><circle cx="8" cy="17" r="2.5"/></symbol>
+<symbol id="mail" viewBox="0 0 24 24"><path d="M3 4h18v13H9l-5 4v-4H3zM7 9h10m-10 4h7"/></symbol>
+<symbol id="deck" viewBox="0 0 24 24"><rect x="7" y="5" width="13" height="16" rx="3"/><path d="M4 16 3 5a2 2 0 0 1 2-2l10-1"/></symbol>
+<symbol id="heart" viewBox="0 0 24 24"><path d="M12 20 4.4 12.5C-1 6.5 6.7 1 12 7.2c5.3-6.2 13-.7 7.6 5.3z"/></symbol>
+<symbol id="person" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-9 16-9 16 0"/></symbol>
+<symbol id="pin" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0z"/><circle cx="12" cy="10" r="2"/></symbol>
+</defs></svg>
+<main class="shell">
+<header><button id="tune" class="icon" aria-label="Фильтры поиска" aria-expanded="false"><svg><use href="#settings"/></svg></button><a href="/" class="brand" aria-label="RuMe, главная">ru<span>me</span><i>✦</i></a><button class="icon" id="open-inbox" aria-label="Открыть уведомления"><svg><use href="#mail"/></svg></button></header>
+<p id="notice" role="status" aria-live="polite"></p>
+<section id="search"><div class="heading"><div><p class="kicker">ПОИСК СОСЕДЕЙ</p><h1>Знакомства</h1></div><span id="count" class="counter"></span></div>
+<form id="filters" class="panel" hidden><h2>Фильтры</h2><label>Район<input name="district" placeholder="Любой район"></label><label>Бюджет до, ₸<input type="number" min="1" name="budget" placeholder="Без ограничения"></label><label>Сортировка<select name="sort"><option value="budget">Сначала дешевле</option><option value="id">По номеру анкеты</option></select></label><button class="primary">Применить</button></form>
+<div id="cards" aria-live="polite"></div></section>
+<section id="matches" hidden><p class="kicker">ВЗАИМНЫЕ ЛАЙКИ</p><h1>Совпадения</h1><div id="pairs"></div></section>
+<section id="inbox" hidden><p class="kicker">ВХОДЯЩИЕ</p><h1>Уведомления</h1><div id="messages"></div></section>
+<section id="profile" hidden><p class="kicker">МОИ ДАННЫЕ</p><h1>Профиль</h1>
+<label class="account">Активная анкета<select id="user"></select></label>
+<form id="editor" class="panel"><h2 id="form-title">Новая анкета</h2><div class="fields"><label>Имя<input name="name" required maxlength="80"></label><label>Возраст<input name="age" type="number" min="18" required></label><label>Район<input name="district" required maxlength="100"></label><label>Бюджет, ₸/мес<input name="budget" type="number" min="1" required></label></div>
+<label>Фото для карточки<input id="picture" type="file" accept="image/jpeg,image/png,image/webp"></label><button class="primary" id="save">Создать анкету</button></form></section>
+<nav aria-label="Навигация"><button data-view="search"><svg><use href="#deck"/></svg>Карточки</button><button data-view="matches"><svg><use href="#heart"/></svg>Совпадения</button><button data-view="inbox"><svg><use href="#mail"/></svg>Уведомления</button><button data-view="profile"><svg><use href="#person"/></svg>Профиль</button></nav>
+</main></body></html>
